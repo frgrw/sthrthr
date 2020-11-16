@@ -1,5 +1,6 @@
 /*
-Copyright 2012 Jun Wako <wakojun@gmail.com>
+Copyright 2020 Michael Fincham
+Copyright 2021 Chad Austin
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -21,29 +22,48 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6666
+#define VENDOR_ID       0x1209 // https://pid.codes/1209/
+#define PRODUCT_ID      0xC846 // made up
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Hotplate Labs
-#define DESCRIPTION     Riding the bus
-
-#define MATRIX_ROWS 8
-#define MATRIX_COLS 18
-
+#define MANUFACTURER    Chad Austin
 #define PRODUCT         Wired Sculpt
-#define MATRIX_ROW_PINS {D0, D1, D2, D3, D4, D5, D6, D7}
-#define MATRIX_COL_PINS {E0, E1, C0, C1, C2, C3, C4, C5, C6, C7, F7, F6, F5, F4, F3, F2, F1, F0}
-#define UNUSED_PINS {B0, B1, B2, B3, B4, B5, B6, B7, A0, A1, A2, A3, A4, A5, A6, A7}
+#define DESCRIPTION     Microsoft Sculpt Wired Conversion
+
+#define MATRIX_ROWS 18
+#define MATRIX_COLS 8
+
+#define MATRIX_ROW_PINS {A5, A6, A7, C7, C6, C5, C4, C3, C2, C1, C0, E1, E0, D7, D6, D5, D4, D3}
+#define MATRIX_COL_PINS {F7, F6, F5, A4, A3, A2, A1, A0}
+#define DIP_SWITCH_PINS {F4}
+#define UNUSED_PINS {/*...*/}
 
 /* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION ROW2COL
+#define DIODE_DIRECTION COL2ROW
 
-/* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
-#define DEBOUNCING_DELAY 5
+#define DEBOUNCE_USE_FRAMES 1
+
+/*
+ * I lived with no debouncing for a while, but phantom keypresses were common.
+ *
+ * I lived with DEBOUNCE_DOWN = 2 for months. Rarely, but often enough to
+ * be annoying, "the" would sometimes produce "theb" or "because" would produce
+ * "bhecause". This is under the Dvorak layout. Given this keyboard's 600 Hz
+ * scan rate, 2 is insufficient anyway, because sometimes the elapsed time between
+ * debounces rounds up to 2.
+ * 
+ * After adding debounce logging and painfully reproducing a "because" producing
+ * "bhecause", I measured 4 ms on the phantom h keypress. Therefore, let's try
+ * setting DEBOUNCE_DOWN to 4.
+ */
+#define DEBOUNCE_DOWN 1
+/*
+ * Keyup latency is less perceptible unless phantom keys appear, so use
+ * a longer debounce.
+ */
+#define DEBOUNCE_UP 5
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 #define MATRIX_HAS_GHOST
-
 
 /*
  * Magic Key Options
@@ -61,6 +81,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
+
+#define LATENCY_MODE_ENABLE 0
+#define LATENCY_MODE_PIN D2
+
+#if !LATENCY_MODE_ENABLE
+#define LED_CAPS_LOCK_PIN B7
+#endif
+
+#define SCULPT_RIGHT_SPACE_KEY KC_SPC
+
+#define USB_POLLING_INTERVAL_MS 2
+//#define QMK_KEYS_PER_SCAN 1
+
+#define DEBUG_MATRIX_SCAN_RATE 1
 
 
 /*
