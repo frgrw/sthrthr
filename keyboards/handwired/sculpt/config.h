@@ -31,6 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DIODE_DIRECTION COL2ROW
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
+// Not sure if this is 100% necessary, but without it pressing ";lkj" and then "h" results in "'" being output
 #define MATRIX_HAS_GHOST
 
 #define SCULPT_RIGHT_SPACE_KEY KC_SPC
