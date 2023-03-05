@@ -21,7 +21,39 @@ Col6  _      END   RSFT   PGDN     _      .     _       ,     _      M      V   
 Col7 RCTL   RIGHT   _       UP   DOWN     _     _       _   RSPC     N      B     SPC     _      _      _     _      _      LCTL
 Col8  _     PSCN    _      F11     =     F9     _      F8    F10    F7      5     F2     F1      ~      _     6      _      _
 
+Wired-Sculpt board:
+Pin 30 = Fn switch. Pulled to Pin 30 at 47K if Fn, floating if not.
+Pin 29 = Column 1
+Pin 28 = Column 2
+Pin 27 = Column 3
+Pin 26 = Column 4
+Pin 25 = Column 5
+Pin 24 = Column 6
+Pin 23 = Column 7
+Pin 22 = Column 8
+Pin 21 = Row 1
+Pin 20 = Row 2
+Pin 19 = Row 3
+Pin 18 = Row 4
+Pin 17 = Row 5
+Pin 16 = Row 6
+Pin 15 = Row 7
+Pin 14 = Row 8
+Pin 13 = Row 9
+Pin 12 = Row 10
+Pin 11 = Row 11
+Pin 10 = Row 12
+Pin 9  = Row 13
+Pin 8  = Row 14
+Pin 7  = Row 15
+Pin 6  = Row 16
+Pin 5  = Row 17
+Pin 4  = Row 18
+Pin 3  = Red LED Anode
+Pin 2  = Green LED Cathode
+Pin 1  = Ground, connected to Fn switch and both LEDs.
 
+Original board:
 Pin 1 = Fn switch. Pulled to Pin 30 at 47K if Fn, floating if not.
 Pin 2 = Column 1
 Pin 3 = Column 2
