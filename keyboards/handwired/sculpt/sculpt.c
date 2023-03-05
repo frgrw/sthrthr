@@ -2,8 +2,6 @@
 #include "debounce.h"
 #include <avr/power.h>
 
-#define DEBOUNCE_DEBUG_ENABLE 0
-
 void keyboard_pre_init_kb(void) {
     keyboard_pre_init_user();
 
@@ -18,10 +16,6 @@ void keyboard_pre_init_kb(void) {
     // Default the charge pump's EN to off
     PORTB &= ~1;
     DDRB |= 1;
-
-#if LATENCY_MODE_ENABLE
-    setPinOutput(LATENCY_MODE_PIN);
-#endif
 }
 
 void keyboard_post_init_kb(void) {
@@ -45,36 +39,4 @@ bool dip_switch_update_kb(uint8_t index, bool active) {
         }
     }
     return dip_switch_update_user(index, active);
-}
-
-bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-#if LATENCY_MODE_ENABLE
-    static int count = 0;
-    if (record->event.pressed) {
-        ++count;
-#ifdef LATENCY_MODE_PIN
-        writePinHigh(LATENCY_MODE_PIN);
-#endif
-    } else {
-        --count;
-        if (count < 0) {
-            count = 0;
-        }
-        if (count == 0) {
-            writePinLow(LATENCY_MODE_PIN);
-        }
-    }
-#endif
-#if DEBOUNCE_DEBUG_ENABLE
-    const uint8_t both_shifts = MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT);
-    switch (keycode) {
-    case KC_H:
-        if ((get_mods() & both_shifts) == both_shifts) {
-            debounce_debug();
-            return false;
-        }
-    }
-#endif
-
-    return process_record_user(keycode, record);
 }

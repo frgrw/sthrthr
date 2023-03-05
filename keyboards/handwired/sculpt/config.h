@@ -29,27 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* COL2ROW or ROW2COL */
 #define DIODE_DIRECTION COL2ROW
 
-#define DEBOUNCE_USE_FRAMES 1
-
-/*
- * I lived with no debouncing for a while, but phantom keypresses were common.
- *
- * I lived with DEBOUNCE_DOWN = 2 for months. Rarely, but often enough to
- * be annoying, "the" would sometimes produce "theb" or "because" would produce
- * "bhecause". This is under the Dvorak layout. Given this keyboard's 600 Hz
- * scan rate, 2 is insufficient anyway, because sometimes the elapsed time between
- * debounces rounds up to 2.
- *
- * After adding debounce logging and painfully reproducing a "because" producing
- * "bhecause", I measured 4 ms on the phantom h keypress. Therefore, let's try
- * setting DEBOUNCE_DOWN to 4.
- */
-#define DEBOUNCE_DOWN 1
-/*
- * Keyup latency is less perceptible unless phantom keys appear, so use
- * a longer debounce.
- */
-#define DEBOUNCE_UP 5
+#define DEBOUNCE 5
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 #define MATRIX_HAS_GHOST
@@ -71,12 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
 
-#define LATENCY_MODE_ENABLE 0
-#define LATENCY_MODE_PIN D2
-
-#if !LATENCY_MODE_ENABLE
 #define LED_CAPS_LOCK_PIN B7
-#endif
 
 #define SCULPT_RIGHT_SPACE_KEY KC_SPC
 
