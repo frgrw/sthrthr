@@ -4,3 +4,5 @@ Based on Michael Fincham's pinout [1] and keyboard definition [2], build a wired
 
 [1] https://github.com/fincham/wired-sculpt
 [2] https://github.com/fincham/qmk_firmware_sculpt
+
+Updated KiCad files available at https://github.com/cberner/wired-sculpt-pcb
