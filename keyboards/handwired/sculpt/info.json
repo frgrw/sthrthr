@@ -1,0 +1,19 @@
+{
+    "keyboard_name": "Wired Sculpt",
+    "manufacturer": "Chad Austin",
+    "url": "https://github.com/cberner/wired-sculpt-pcb",
+    "maintainer": "cberner",
+    "usb": {
+        "vid": "0x1209",
+        "pid": "0xC846",
+        "device_version": "0.6.0"
+    },
+    "processor": "at90usb1286",
+    "bootloader": "atmel-dfu",
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+            ]
+        }
+    }
+}
