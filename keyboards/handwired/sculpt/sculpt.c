@@ -24,8 +24,6 @@ void keyboard_post_init_kb(void) {
     // 47K and the AT90USB's internal pull-up is between 20K and 50K.
     setPinInput(F4);
 
-    debug_enable = true;
-
     keyboard_post_init_user();
 }
 
