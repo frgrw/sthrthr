@@ -25,9 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0x1209 // https://pid.codes/1209/
 #define PRODUCT_ID      0xC846 // made up
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    Chad Austin
-#define PRODUCT         Wired Sculpt
-#define DESCRIPTION     Microsoft Sculpt Wired Conversion
+#define MANUFACTURER    "Chad Austin"
+#define PRODUCT         "Wired Sculpt"
+#define DESCRIPTION     "Microsoft Sculpt Wired Conversion"
 
 #define MATRIX_ROWS 18
 #define MATRIX_COLS 8
@@ -50,7 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * "bhecause". This is under the Dvorak layout. Given this keyboard's 600 Hz
  * scan rate, 2 is insufficient anyway, because sometimes the elapsed time between
  * debounces rounds up to 2.
- * 
+ *
  * After adding debounce logging and painfully reproducing a "because" producing
  * "bhecause", I measured 4 ms on the phantom h keypress. Therefore, let's try
  * setting DEBOUNCE_DOWN to 4.
