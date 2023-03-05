@@ -23,11 +23,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 8
 
 #define MATRIX_ROW_PINS {A5, A6, A7, C7, C6, C5, C4, C3, C2, C1, C0, E1, E0, D7, D6, D5, D4, D3}
-#define MATRIX_COL_PINS {F7, F6, F5, A4, A3, A2, A1, A0}
+#define MATRIX_COL_PINS {F5, F6, F7, A0, A1, A2, A3, A4}
 #define DIP_SWITCH_PINS {F4}
 
 /* COL2ROW or ROW2COL */
-#define DIODE_DIRECTION COL2ROW
+#define DIODE_DIRECTION ROW2COL
 
 /* define if matrix has ghost (lacks anti-ghosting diodes) */
 #define MATRIX_HAS_GHOST
@@ -48,6 +48,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
+
+#define BOOTMAGIC_LITE_ROW 13
+#define BOOTMAGIC_LITE_COLUMN 4
 
 #define SCULPT_RIGHT_SPACE_KEY KC_SPC
 
