@@ -17,5 +17,9 @@
     },
     "indicators": {
         "caps_lock": "B7"
+    },
+    "bootmagic": {
+        "enabled": true,
+        "matrix": [4, 13]
     }
 }
