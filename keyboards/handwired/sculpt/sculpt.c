@@ -9,10 +9,6 @@ void keyboard_pre_init_kb(void) {
     // so enable full frequency in software.
     clock_prescale_set(clock_div_1);
 
-    // Power reduction. Doesn't save much. :(
-    PRR0 = 0b10000101;
-    PRR1 = 0b00000001;
-
     // Default the charge pump's EN to off
     PORTB &= ~1;
     DDRB |= 1;

@@ -1,6 +1,7 @@
 /*
 Copyright 2020 Michael Fincham
 Copyright 2021 Chad Austin
+Copyright 2023 Christopher Berner
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
